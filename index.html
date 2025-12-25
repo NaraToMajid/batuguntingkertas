@@ -3,172 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Website</title>
-    <style>
-        /* Reset dan dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* Header */
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #000000;
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-        
-        /* Container link */
-        .links-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        /* Card link */
-        .link-card {
-            background-color: #ffffff;
-            border: 1px solid #000000;
-            padding: 20px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            color: #000000;
-            display: block;
-        }
-        
-        .link-card:hover {
-            background-color: #000000;
-            color: #ffffff;
-            cursor: pointer;
-        }
-        
-        .link-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .link-url {
-            font-size: 0.9rem;
-            color: #555555;
-            word-break: break-all;
-        }
-        
-        .link-card:hover .link-url {
-            color: #cccccc;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid #000000;
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsif untuk mobile */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .links-container {
-                grid-template-columns: 1fr;
-            }
-            
-            body {
-                padding: 15px;
-            }
-        }
-    </style>
+    <title>Gunting Batu Kertas - VS AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>PORTAL WEBSITE</h1>
-        <p class="subtitle">Kumpulan link website dengan tampilan simpel</p>
-    </header>
-    
-    <main>
-        <div class="links-container">
-            <!-- Link 1 -->
-            <a href="https://almajid.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Almajid</div>
-                <div class="link-url">https://almajid.vercel.app/</div>
-            </a>
+    <div class="container">
+        <!-- Login Screen -->
+        <div class="screen active" id="loginScreen">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo" id="logoImage" onerror="this.style.display='none'; document.getElementById('logoText').style.display='block'">
+                <div id="logoText" style="display: none; font-size: 2rem; font-weight: 700;">GUNTING BATU KERTAS</div>
+            </div>
             
-            <!-- Link 2 -->
-            <a href="https://almajidnafi.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Almajid Naf</div>
-                <div class="link-url">https://almajidnafi.vercel.app/</div>
-            </a>
+            <h2 class="auth-title">LOGIN</h2>
             
-            <!-- Link 3 -->
-            <a href="https://almajidoor.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Almajid Door</div>
-                <div class="link-url">https://almajidoor.vercel.app/</div>
-            </a>
+            <div class="input-group">
+                <label class="input-label">Username:</label>
+                <input type="text" class="input-field" id="loginUsername" placeholder="Masukkan username">
+            </div>
             
-            <!-- Link 4 -->
-            <a href="https://bahlil-alpha.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Bahlil Alpha</div>
-                <div class="link-url">https://bahlil-alpha.vercel.app/</div>
-            </a>
+            <div class="input-group">
+                <label class="input-label">Password:</label>
+                <input type="password" class="input-field" id="loginPassword" placeholder="Masukkan password">
+            </div>
             
-            <!-- Link 5 -->
-            <a href="https://catatanrahasia.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Catatan Rahasia</div>
-                <div class="link-url">https://catatanrahasia.vercel.app/</div>
-            </a>
+            <button class="btn" id="loginBtn">LOGIN</button>
             
-            <!-- Link 6 -->
-            <a href="https://dinoalmajid.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Dino Almajid</div>
-                <div class="link-url">https://dinoalmajid.vercel.app/</div>
-            </a>
-            
-            <!-- Link 7 -->
-            <a href="https://bahlilpuzzle.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Bahlil Puzzle</div>
-                <div class="link-url">https://bahlilpuzzle.vercel.app/</div>
-            </a>
-            
-            <!-- Link 8 -->
-            <a href="https://bahlil-slash.vercel.app/" target="_blank" class="link-card">
-                <div class="link-title">Bahlil Slash</div>
-                <div class="link-url">https://bahlil-slash.vercel.app/</div>
-            </a>
+            <div class="auth-links">
+                Belum punya akun? <span class="auth-link" id="gotoRegisterBtn">Daftar di sini</span>
+            </div>
         </div>
-    </main>
-    
-    <footer>
-        <p>Portal Website Sederhana &copy; 2023</p>
-        <p>Tema hitam putih tanpa elemen dekoratif</p>
-    </footer>
+        
+        <!-- Register Screen -->
+        <div class="screen" id="registerScreen">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            
+            <h2 class="auth-title">REGISTRASI</h2>
+            
+            <div class="input-group">
+                <label class="input-label">Username:</label>
+                <input type="text" class="input-field" id="registerUsername" placeholder="Masukkan username">
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">Password:</label>
+                <input type="password" class="input-field" id="registerPassword" placeholder="Masukkan password">
+            </div>
+            
+            <div class="input-group">
+                <label class="input-label">Konfirmasi Password:</label>
+                <input type="password" class="input-field" id="registerConfirmPassword" placeholder="Ulangi password">
+            </div>
+            
+            <button class="btn btn-success" id="registerBtn">DAFTAR</button>
+            
+            <div class="auth-links">
+                Sudah punya akun? <span class="auth-link" id="gotoLoginBtn">Login di sini</span>
+            </div>
+        </div>
+        
+        <!-- Main Menu Screen -->
+        <div class="screen" id="mainScreen">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            
+            <div class="welcome-message" id="welcomeMessage">Selamat Datang!</div>
+            
+            <h2 class="menu-title">MAIN MENU</h2>
+            
+            <button class="btn" id="playGameBtn">MULAI BERMAIN</button>
+            <button class="btn btn-secondary" id="viewLeaderboardBtn">LIHAT LEADERBOARD</button>
+            <button class="btn btn-secondary" id="viewProfileBtn">PROFIL SAYA</button>
+            <button class="btn btn-secondary" id="logoutBtn">LOGOUT</button>
+        </div>
+        
+        <!-- Leaderboard Screen -->
+        <div class="screen" id="leaderboardScreen">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            
+            <h2 class="auth-title">LEADERBOARD</h2>
+            <p class="menu-title">Top 20 Pemain Terbaik</p>
+            
+            <div class="leaderboard-container">
+                <div class="leaderboard-list" id="leaderboardList">
+                    <div class="loading">Memuat leaderboard...</div>
+                </div>
+            </div>
+            
+            <button class="btn btn-secondary" id="backFromLeaderboardBtn">KEMBALI KE MENU</button>
+        </div>
+        
+        <!-- Profile Screen -->
+        <div class="screen" id="profileScreen">
+            <div class="logo-container">
+                <img src="logo.webp" alt="Logo" class="logo">
+            </div>
+            
+            <h2 class="auth-title">PROFIL SAYA</h2>
+            
+            <div class="profile-container">
+                <div class="profile-stats" id="profileStats">
+                    <div class="loading">Memuat profil...</div>
+                </div>
+            </div>
+            
+            <button class="btn btn-secondary" id="backFromProfileBtn">KEMBALI KE MENU</button>
+        </div>
+        
+        <!-- Game Screen -->
+        <div class="game-screen" id="gameScreen">
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="score-title">ANDA</div>
+                    <div class="score" id="playerScore">0</div>
+                </div>
+                
+                <div class="versus">VS</div>
+                
+                <div class="score-box">
+                    <div class="score-title">KOMPUTER</div>
+                    <div class="score" id="computerScore">0</div>
+                </div>
+            </div>
+            
+            <div class="game-area">
+                <div class="player-area">
+                    <div class="area-title">ANDA</div>
+                    <div class="choice-display player-choice" id="playerChoiceDisplay">
+                        <div class="choice-placeholder">PILIH</div>
+                    </div>
+                </div>
+                
+                <div class="computer-area">
+                    <div class="area-title">KOMPUTER</div>
+                    <div class="choice-display computer-choice" id="computerChoiceDisplay">
+                        <div class="choice-placeholder">MENUNGGU</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="choices-container" id="choicesContainer">
+                <div class="choices-title">PILIHAN ANDA</div>
+                <div class="current-score">Score Saat Ini: <span id="currentScore">0</span> poin</div>
+                <div class="choices">
+                    <div class="choice-btn" data-choice="gunting" id="guntingBtn">
+                        <img src="gunting.webp" alt="Gunting" onerror="this.parentElement.innerHTML='GUNTING'">
+                    </div>
+                    
+                    <div class="choice-btn" data-choice="batu" id="batuBtn">
+                        <img src="batu.webp" alt="Batu" onerror="this.parentElement.innerHTML='BATU'">
+                    </div>
+                    
+                    <div class="choice-btn" data-choice="kertas" id="kertasBtn">
+                        <img src="kertas.webp" alt="Kertas" onerror="this.parentElement.innerHTML='KERTAS'">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-container" id="resultContainer">
+                <div class="result-text" id="resultText">PILIH SALAH SATU</div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn" id="playAgainBtn" style="display:none;">MAIN LAGI</button>
+                <button class="btn btn-success" id="saveScoreBtn" style="display:none;">SIMPAN SCORE</button>
+                <button class="btn btn-secondary" id="backToMenuBtn">KEMBALI KE MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
