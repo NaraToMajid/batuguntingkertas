@@ -8,61 +8,78 @@
 body {
     background-color: #000;
     color: #fff;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 100%;
     width: 100%;
-    padding: 20px;
-    height: 100%;
+    padding: 15px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Semua screen */
 .screen {
     display: none;
-    height: 100%;
+    width: 100%;
+    max-width: 500px;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .screen.active {
     display: flex;
 }
 
+/* Logo lebih kecil untuk mobile */
 .logo-container {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 .logo {
-    max-width: 300px;
+    max-width: 200px !important;
     height: auto;
 }
 
+/* Tombol lebih panjang dan mudah di-tap */
 .btn {
     background-color: #fff;
     color: #000;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
+    padding: 16px 20px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 280px;
+    width: 100%;
+    max-width: 320px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 10px 0;
+    letter-spacing: 1px;
+    margin: 8px 0;
+    border-radius: 0;
+    touch-action: manipulation;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover {
@@ -71,6 +88,7 @@ body {
 
 .btn:active {
     transform: scale(0.98);
+    background-color: #ccc;
 }
 
 .btn-secondary {
@@ -92,16 +110,18 @@ body {
     background-color: #45a049;
 }
 
-/* Login/Register screens */
+/* Login/Register screens - disederhanakan */
 .auth-title {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
     color: #fff;
+    text-align: center;
 }
 
 .input-group {
-    margin: 15px 0;
-    width: 280px;
+    margin: 12px 0;
+    width: 100%;
+    max-width: 320px;
 }
 
 .input-label {
@@ -109,101 +129,133 @@ body {
     text-align: left;
     margin-bottom: 5px;
     color: #aaa;
+    font-size: 0.9rem;
 }
 
 .input-field {
     width: 100%;
-    padding: 12px 15px;
+    padding: 14px 16px;
     background-color: #222;
     border: 1px solid #444;
     color: #fff;
     font-size: 1rem;
+    border-radius: 0;
+    -webkit-appearance: none;
+    min-height: 48px;
+}
+
+.input-field:focus {
+    outline: 2px solid #4CAF50;
+    border-color: transparent;
 }
 
 .auth-links {
     margin-top: 20px;
     color: #aaa;
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 .auth-link {
     color: #4CAF50;
     cursor: pointer;
     text-decoration: underline;
+    padding: 5px;
+    display: inline-block;
 }
 
 .auth-link:hover {
     color: #45a049;
 }
 
-/* Main Menu */
+/* Main Menu - lebih kompak */
 .welcome-message {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
     color: #fff;
+    text-align: center;
+    line-height: 1.3;
 }
 
 .menu-title {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
     color: #aaa;
+    text-align: center;
 }
 
-/* Game screen */
+/* Game screen - diatur vertikal */
 .game-screen {
     display: none;
-    height: 100%;
+    width: 100%;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding: 10px;
 }
 
 .game-screen.active {
     display: flex;
 }
 
+/* Score container vertikal */
 .score-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 0 20px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
     flex-shrink: 0;
 }
 
 .score-box {
-    flex: 1;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px 0;
+    text-align: center;
 }
 
 .score-title {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    margin-bottom: 8px;
     color: #aaa;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .score {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .versus {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #fff;
     font-weight: 700;
-    margin: 0 20px;
+    margin: 10px 0;
 }
 
+/* Game area vertikal untuk mobile */
 .game-area {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+    gap: 20px;
     flex: 1;
-    min-height: 250px;
+    min-height: 350px;
+    justify-content: center;
 }
 
 .player-area, .computer-area {
-    flex: 1;
+    width: 100%;
+    max-width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,16 +263,18 @@ body {
 }
 
 .area-title {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
+/* Choice display lebih kecil */
 .choice-display {
-    width: 220px;
-    height: 220px;
+    width: 160px !important;
+    height: 160px !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,10 +282,11 @@ body {
     position: relative;
     border: 2px solid #333;
     background-color: #111;
+    margin: 0 auto;
 }
 
 .choice-display img {
-    width: 80%;
+    width: 70% !important;
     height: auto;
     object-fit: contain;
     position: absolute;
@@ -249,7 +304,7 @@ body {
 }
 
 .choice-placeholder {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #777;
     display: flex;
     align-items: center;
@@ -257,70 +312,41 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
+    padding: 10px;
 }
 
-.choice-spinner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.spinner-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.spinner-image {
-    width: 70%;
-    height: auto;
-    opacity: 0.9;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.player-spinner .spinner-image {
-    transform: translate(-50%, -50%) scaleX(1);
-}
-
-.computer-spinner .spinner-image {
-    transform: translate(-50%, -50%) scaleX(-1);
-}
-
+/* Choices container vertikal */
 .choices-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 15px 0;
     flex-shrink: 0;
 }
 
 .choices-title {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .choices {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 350px;
+    flex-wrap: wrap;
 }
 
 .choice-btn {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     background-color: #222;
     border: 2px solid #444;
     border-radius: 0;
@@ -329,6 +355,9 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
+    touch-action: manipulation;
+    min-width: 90px;
+    min-height: 90px;
 }
 
 .choice-btn:hover {
@@ -339,6 +368,7 @@ body {
 .choice-btn.active {
     background-color: #444;
     border-color: #fff;
+    transform: scale(1.05);
 }
 
 .choice-btn.disabled {
@@ -352,14 +382,15 @@ body {
 }
 
 .choice-btn img {
-    width: 70%;
+    width: 65%;
     height: auto;
     object-fit: contain;
     transform: scaleX(1);
 }
 
+/* Result text lebih kecil */
 .result-container {
-    margin-top: 10px;
+    margin: 10px 0;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -371,12 +402,13 @@ body {
 }
 
 .result-text {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.3;
     padding: 10px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .win {
@@ -392,50 +424,62 @@ body {
     color: #FFC107;
 }
 
+/* Action buttons vertikal */
 .action-buttons {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 320px;
     flex-shrink: 0;
 }
 
-.current-score {
-    font-size: 1.2rem;
-    color: #FFC107;
-    margin: 10px 0;
+.action-buttons .btn {
+    margin: 4px 0;
 }
 
-/* Leaderboard screen */
+.current-score {
+    font-size: 1.1rem;
+    color: #FFC107;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Leaderboard screen untuk mobile */
 .leaderboard-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     height: 400px;
     overflow-y: auto;
-    margin: 20px 0;
+    margin: 15px 0;
     border: 1px solid #333;
     background-color: #111;
+    -webkit-overflow-scrolling: touch;
 }
 
 .leaderboard-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.85rem;
 }
 
 .leaderboard-table th {
     background-color: #222;
-    padding: 15px;
+    padding: 12px 8px;
     text-align: center;
     font-weight: 600;
     border-bottom: 2px solid #444;
     position: sticky;
     top: 0;
     z-index: 10;
+    font-size: 0.9rem;
 }
 
 .leaderboard-table td {
-    padding: 12px 15px;
+    padding: 10px 8px;
     text-align: center;
     border-bottom: 1px solid #333;
 }
@@ -459,30 +503,34 @@ body {
 .loading, .no-data, .error {
     padding: 40px 20px;
     color: #aaa;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-align: center;
+    line-height: 1.4;
 }
 
-/* Profile screen */
+/* Profile screen untuk mobile */
 .profile-container {
     width: 100%;
-    max-width: 500px;
-    padding: 20px;
+    max-width: 100%;
+    padding: 20px 15px;
     background-color: #111;
     border: 1px solid #333;
+    margin: 15px 0;
 }
 
 .profile-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
     color: #fff;
+    text-align: center;
 }
 
 .stat-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #333;
+    font-size: 0.95rem;
 }
 
 .stat-label {
@@ -501,84 +549,167 @@ body {
     to { transform: scale(1.05); opacity: 1; }
 }
 
-/* Responsif */
-@media (max-width: 768px) {
+.pulse {
+    animation: pulse 0.3s ease-in-out 2;
+}
+
+/* Spinner untuk mobile */
+.spinner-image.fast-switch {
+    transition: transform 0.1s ease;
+}
+
+/* Tombol kembali khusus untuk mobile */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #555;
+    color: white;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    z-index: 100;
+    min-width: auto;
+    width: auto;
+}
+
+/* Safe area untuk iPhone dengan notch */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+        padding-top: max(15px, env(safe-area-inset-top));
+        padding-bottom: max(15px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Pencegahan zoom pada input di iOS */
+input, select, textarea {
+    font-size: 16px !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsif tambahan untuk layar sangat kecil */
+@media (max-width: 360px) {
+    .logo {
+        max-width: 180px !important;
+    }
+    
+    .choice-display {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    .choice-btn {
+        width: 80px;
+        height: 80px;
+        min-width: 80px;
+        min-height: 80px;
+    }
+    
+    .choices {
+        gap: 10px;
+    }
+    
+    .score {
+        font-size: 2.2rem;
+    }
+    
+    .result-text {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        padding: 14px 16px;
+        min-height: 50px;
+    }
+}
+
+/* Landscape prevention - lock ke portrait */
+@media (orientation: landscape) and (max-height: 500px) {
+    body {
+        padding: 10px;
+    }
+    
     .container {
         padding: 10px;
     }
     
-    .game-area {
-        flex-direction: column;
-        gap: 20px;
-        min-height: 400px;
+    .screen {
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     
-    .score-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 10px;
-    }
-    
-    .versus {
-        margin: 10px 0;
-    }
-    
-    .choices {
-        gap: 15px;
-    }
-    
-    .choice-btn {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .choice-display {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .result-text {
-        font-size: 1.5rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .leaderboard-table th,
-    .leaderboard-table td {
-        padding: 8px 10px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-height: 700px) {
     .logo-container {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        margin-top: 0;
     }
     
-    .choice-display {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .choice-btn {
-        width: 90px;
-        height: 90px;
-    }
-    
-    .score {
-        font-size: 2.5rem;
-    }
-    
-    .result-text {
-        font-size: 1.4rem;
+    .logo {
+        max-width: 150px !important;
     }
     
     .game-area {
         min-height: 200px;
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .player-area, .computer-area {
+        max-width: 180px;
+    }
+    
+    .choice-display {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+/* Tinggi sangat pendek */
+@media (max-height: 600px) {
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    .auth-title, .menu-title {
+        margin-bottom: 15px;
+    }
+    
+    .input-group {
+        margin: 8px 0;
+    }
+    
+    .btn {
+        margin: 6px 0;
+        padding: 12px 16px;
+        min-height: 48px;
+    }
+    
+    .game-area {
+        min-height: 250px;
+    }
+    
+    .choice-display {
+        width: 140px !important;
+        height: 140px !important;
     }
 }
