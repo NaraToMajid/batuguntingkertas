@@ -184,10 +184,11 @@ body {
     text-align: center;
 }
 
-/* Game screen - diatur vertikal */
+/* Game screen - LAYOUT HORIZONTAL */
 .game-screen {
     display: none;
     width: 100%;
+    max-width: 500px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -199,20 +200,21 @@ body {
     display: flex;
 }
 
-/* Score container vertikal */
+/* Score container HORIZONTAL */
 .score-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 15px;
     width: 100%;
+    max-width: 500px;
     flex-shrink: 0;
 }
 
 .score-box {
-    width: 100%;
-    max-width: 200px;
-    margin: 10px 0;
+    flex: 1;
+    margin: 0 10px;
     text-align: center;
 }
 
@@ -237,29 +239,31 @@ body {
     font-size: 1.8rem;
     color: #fff;
     font-weight: 700;
-    margin: 10px 0;
+    margin: 0 15px;
+    flex-shrink: 0;
 }
 
-/* Game area vertikal untuk mobile */
+/* Game area HORIZONTAL untuk mobile portrait */
 .game-area {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-bottom: 15px;
+    justify-content: space-between;
+    margin-bottom: 20px;
     width: 100%;
+    max-width: 500px;
     gap: 20px;
     flex: 1;
-    min-height: 350px;
-    justify-content: center;
+    min-height: 200px;
 }
 
 .player-area, .computer-area {
-    width: 100%;
-    max-width: 280px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 .area-title {
@@ -271,10 +275,10 @@ body {
     text-align: center;
 }
 
-/* Choice display lebih kecil */
+/* Choice display lebih kecil untuk layout horizontal */
 .choice-display {
-    width: 160px !important;
-    height: 160px !important;
+    width: 140px !important;
+    height: 140px !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,9 +319,10 @@ body {
     padding: 10px;
 }
 
-/* Choices container vertikal */
+/* Choices container tetap vertikal di bawah */
 .choices-container {
     width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -388,7 +393,7 @@ body {
     transform: scaleX(1);
 }
 
-/* Result text lebih kecil */
+/* Result text */
 .result-container {
     margin: 10px 0;
     padding: 10px;
@@ -397,6 +402,7 @@ body {
     justify-content: center;
     flex-shrink: 0;
     width: 100%;
+    max-width: 500px;
     box-sizing: border-box;
     min-height: 60px;
 }
@@ -424,20 +430,24 @@ body {
     color: #FFC107;
 }
 
-/* Action buttons vertikal */
+/* Action buttons bisa horizontal atau vertikal */
 .action-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     margin: 15px 0;
     width: 100%;
-    max-width: 320px;
+    max-width: 500px;
     flex-shrink: 0;
+    flex-wrap: wrap;
 }
 
 .action-buttons .btn {
-    margin: 4px 0;
+    flex: 1;
+    min-width: 150px;
+    margin: 4px;
 }
 
 .current-score {
@@ -608,14 +618,61 @@ input, select, textarea {
 }
 
 /* Responsif tambahan untuk layar sangat kecil */
+@media (max-width: 480px) {
+    .game-area {
+        gap: 15px;
+        min-height: 180px;
+    }
+    
+    .choice-display {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    .area-title {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .versus {
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+    
+    .score-box {
+        margin: 0 5px;
+    }
+    
+    .score-title {
+        font-size: 0.9rem;
+    }
+    
+    .score {
+        font-size: 2rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons .btn {
+        min-width: 100%;
+    }
+}
+
 @media (max-width: 360px) {
     .logo {
         max-width: 180px !important;
     }
     
+    .game-area {
+        gap: 10px;
+        min-height: 160px;
+    }
+    
     .choice-display {
-        width: 140px !important;
-        height: 140px !important;
+        width: 110px !important;
+        height: 110px !important;
     }
     
     .choice-btn {
@@ -685,7 +742,7 @@ input, select, textarea {
 }
 
 /* Tinggi sangat pendek */
-@media (max-height: 600px) {
+@media (max-height: 700px) {
     .logo-container {
         margin-bottom: 15px;
     }
@@ -704,227 +761,6 @@ input, select, textarea {
         min-height: 48px;
     }
     
-    .game-area {
-        min-height: 250px;
-    }
-    
-    .choice-display {
-        width: 140px !important;
-        height: 140px !important;
-    }
-
-    /* GAME LAYOUT HORIZONTAL UNTUK MODE PORTRAIT */
-
-/* Score container tetap di atas */
-.score-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    width: 100%;
-    max-width: 500px;
-    flex-shrink: 0;
-}
-
-.score-box {
-    flex: 1;
-    margin: 0 10px;
-    text-align: center;
-}
-
-.versus {
-    font-size: 1.8rem;
-    color: #fff;
-    font-weight: 700;
-    margin: 0 15px;
-    flex-shrink: 0;
-}
-
-/* Game area menjadi horizontal */
-.game-area {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 500px;
-    gap: 20px;
-    flex: 1;
-    min-height: 200px;
-}
-
-.player-area, .computer-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-/* Pilihan (gunting, batu, kertas) tetap di bawah */
-.choices-container {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 0;
-    flex-shrink: 0;
-}
-
-.choices {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-}
-
-/* Choice display lebih kecil untuk horizontal layout */
-.choice-display {
-    width: 140px !important;
-    height: 140px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    border: 2px solid #333;
-    background-color: #111;
-    margin: 0 auto;
-}
-
-/* Result container */
-.result-container {
-    margin: 10px 0;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 500px;
-    box-sizing: border-box;
-    min-height: 60px;
-}
-
-/* Action buttons */
-.action-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 15px 0;
-    width: 100%;
-    max-width: 500px;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-}
-
-.action-buttons .btn {
-    flex: 1;
-    min-width: 150px;
-    margin: 4px;
-}
-
-/* Current score */
-.current-score {
-    font-size: 1.1rem;
-    color: #FFC107;
-    margin: 10px 0;
-    text-align: center;
-    font-weight: 600;
-}
-
-/* Responsif untuk layar sangat kecil */
-@media (max-width: 480px) {
-    .game-area {
-        gap: 15px;
-        min-height: 180px;
-    }
-    
-    .choice-display {
-        width: 120px !important;
-        height: 120px !important;
-    }
-    
-    .area-title {
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
-    
-    .versus {
-        font-size: 1.5rem;
-        margin: 0 10px;
-    }
-    
-    .score-box {
-        margin: 0 5px;
-    }
-    
-    .score-title {
-        font-size: 0.9rem;
-    }
-    
-    .score {
-        font-size: 2rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-    }
-    
-    .action-buttons .btn {
-        min-width: 100%;
-    }
-}
-
-/* Untuk layar sangat sempit */
-@media (max-width: 360px) {
-    .game-area {
-        gap: 10px;
-        min-height: 160px;
-    }
-    
-    .choice-display {
-        width: 110px !important;
-        height: 110px !important;
-    }
-    
-    .choices {
-        gap: 10px;
-    }
-    
-    .choice-btn {
-        width: 80px;
-        height: 80px;
-        min-width: 80px;
-        min-height: 80px;
-    }
-}
-
-/* Untuk landscape mode - lock ke portrait */
-@media (orientation: landscape) and (max-height: 500px) {
-    .game-area {
-        min-height: 200px;
-    }
-    
-    .choice-display {
-        width: 120px !important;
-        height: 120px !important;
-    }
-    
-    .choices-container {
-        margin: 10px 0;
-    }
-}
-
-/* Untuk tinggi layar pendek */
-@media (max-height: 700px) {
     .game-area {
         min-height: 180px;
         margin-bottom: 15px;
